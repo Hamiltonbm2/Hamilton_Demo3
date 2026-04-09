@@ -154,18 +154,26 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="one-paragraph-summary" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="one-paragraph-summary"><span class="header-section-number">1</span> One-paragraph summary</h2>
-<p>Write 4–6 sentences describing: - Do immune cell populations show distinct gene-expression patterns in ALD compared with healthy liver, and do they appear to contribute strongly to disease-related changes? - the dataset(s) - your approach (methods) - what you will deliver (figures, model, dashboard, etc.)</p>
+<p>This project investigates whether immune cell populations show distinct gene-expression patterns in alcohol-related liver disease (ALD) compared with healthy liver and whether they contribute significantly to disease-associated changes. We use single-cell RNA sequencing data from human liver tissue, including 5 ALD samples and 5 healthy control samples, to enable cell-type-specific analysis. Using a Seurat-based workflow, we perform quality control, normalization, dimensionality reduction (PCA/UMAP), clustering, and marker gene annotation, followed by differential expression and gene set enrichment analysis (GSEA). This approach allows us to compare gene expression patterns across both cell types and disease conditions. Preliminary results suggest increased immune activation alongside reduced hepatocyte function in ALD, with pathway analysis indicating strong disruption of metabolic processes. The final deliverables include UMAP visualizations, marker gene dot plots, and pathway enrichment figures that together illustrate how cell-type-specific changes contribute to overall disease biology.</p>
 </section>
 <section id="project-roadmap-living" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="project-roadmap-living"><span class="header-section-number">2</span> Project roadmap (living)</h2>
 <ul class="task-list">
-<li><label><input type="checkbox">Find dataset(s)</label></li>
-<li><label><input type="checkbox">Define outcome + predictors / variables</label></li>
-<li><label><input type="checkbox">Exploratory analysis + QC</label></li>
-<li><label><input type="checkbox">Method 1 (required)</label></li>
-<li><label><input type="checkbox">Method 2 (optional/extension)</label></li>
-<li><label><input type="checkbox">Final figures + interpretation</label></li>
-<li><label><input type="checkbox">Limitations + ethics + reproducibility notes</label></li>
+<li><p><label><input type="checkbox" checked="">Find dataset(s)<br>
+Identified and used GEO dataset (GSE236382) with single-cell RNA sequencing data from ALD liver samples, and added a matched healthy control dataset for comparison.</label></p></li>
+<li><p><label><input type="checkbox" checked="">Define outcome + predictors / variables<br>
+Outcome: disease status (ALD vs Control)<br>
+Predictors: gene expression levels across individual cells, cluster identity (cell type), and pathway enrichment scores</label></p></li>
+<li><p><label><input type="checkbox" checked="">Exploratory analysis + QC<br>
+Performed quality control filtering (mitochondrial content, gene counts), normalization, and identification of highly variable genes. Generated QC plots and ensured data quality prior to analysis.</label></p></li>
+<li><p><label><input type="checkbox" checked="">Method 1 (required)<br>
+Applied Seurat workflow including PCA, UMAP, clustering, and marker gene analysis to identify liver cell populations and compare expression patterns between ALD and control.</label></p></li>
+<li><p><label><input type="checkbox" checked="">Method 2 (optional/extension)<br>
+Performed differential expression analysis followed by gene set enrichment analysis (GSEA) to identify significantly altered biological pathways.</label></p></li>
+<li><p><label><input type="checkbox" checked="">Final figures + interpretation<br>
+Generated UMAP plots, marker gene dot plots, and pathway enrichment figures. Interpreted results to show increased immune activation and disruption of metabolic pathways in ALD.</label></p></li>
+<li><p><label><input type="checkbox">Limitations + ethics + reproducibility notes<br>
+To be finalized; will include discussion of dataset size, global vs cell-type-specific analysis, and reproducibility through shared code and data sources.</label></p></li>
 </ul>
 </section>
 <section id="where-to-find-things" class="level2" data-number="3">

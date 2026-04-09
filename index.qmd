@@ -7,14 +7,28 @@ subtitle: "BNFO 420 Capstone - Group 4"
 This project investigates whether immune cell populations show distinct gene-expression patterns in alcohol-related liver disease (ALD) compared with healthy liver and whether they contribute significantly to disease-associated changes. We use single-cell RNA sequencing data from human liver tissue, including 5 ALD samples and 5 healthy control samples, to enable cell-type-specific analysis. Using a Seurat-based workflow, we perform quality control, normalization, dimensionality reduction (PCA/UMAP), clustering, and marker gene annotation, followed by differential expression and gene set enrichment analysis (GSEA). This approach allows us to compare gene expression patterns across both cell types and disease conditions. Preliminary results suggest increased immune activation alongside reduced hepatocyte function in ALD, with pathway analysis indicating strong disruption of metabolic processes. The final deliverables include UMAP visualizations, marker gene dot plots, and pathway enrichment figures that together illustrate how cell-type-specific changes contribute to overall disease biology.
 
 ## Project roadmap (living)
-- [ ] Find dataset(s)
-- [ ] Define outcome + predictors / variables
-- [ ] Exploratory analysis + QC
-- [ ] Method 1 (required)
-- [ ] Method 2 (optional/extension)
-- [ ] Final figures + interpretation
-- [ ] Limitations + ethics + reproducibility notes
+- [x] Find dataset(s)  
+  Identified and used GEO dataset (GSE236382) with single-cell RNA sequencing data from ALD liver samples, and added a matched healthy control dataset for comparison.
 
+- [x] Define outcome + predictors / variables  
+  Outcome: disease status (ALD vs Control)  
+  Predictors: gene expression levels across individual cells, cluster identity (cell type), and pathway enrichment scores  
+
+- [x] Exploratory analysis + QC  
+  Performed quality control filtering (mitochondrial content, gene counts), normalization, and identification of highly variable genes. Generated QC plots and ensured data quality prior to analysis.
+
+- [x] Method 1 (required)  
+  Applied Seurat workflow including PCA, UMAP, clustering, and marker gene analysis to identify liver cell populations and compare expression patterns between ALD and control.
+
+- [x] Method 2 (optional/extension)  
+  Performed differential expression analysis followed by gene set enrichment analysis (GSEA) to identify significantly altered biological pathways.
+
+- [x] Final figures + interpretation  
+  Generated UMAP plots, marker gene dot plots, and pathway enrichment figures. Interpreted results to show increased immune activation and disruption of metabolic pathways in ALD.
+
+- [ ] Limitations + ethics + reproducibility notes  
+  To be finalized; will include discussion of dataset size, global vs cell-type-specific analysis, and reproducibility through shared code and data sources.
+  
 ## Where to find things
 - **Scripts:** `scripts/`
 - **Data notes:** `data/README.md`
