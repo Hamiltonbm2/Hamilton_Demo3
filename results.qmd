@@ -8,4 +8,11 @@ Add bullet points as you go.
 ## Figures
 Add figures as you generate them. Example:
 
-test
+## Initial GSEA Plot
+![](figures/fig01_GSEA1.png){fig-cap="GSEA results showing metabolic pathway enrichment."}
+
+## dotplot
+![](figures/fig02_dotplot.png){fig-cap="dotplot results comparing cell types with average gene expression of common markers."}
+
+## UMAP
+![](figures/fig03_UMAP_CellTypes.png){fig-cap="UMAP comparing cell clusters"}

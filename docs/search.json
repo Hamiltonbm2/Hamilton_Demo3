@@ -102,6 +102,27 @@
     "href": "results.html#figures",
     "title": "Results",
     "section": "2 Figures",
-    "text": "2 Figures\nAdd figures as you generate them. Example:\ntest"
+    "text": "2 Figures\nAdd figures as you generate them. Example:"
+  },
+  {
+    "objectID": "results.html#initial-gsea-plot",
+    "href": "results.html#initial-gsea-plot",
+    "title": "Results",
+    "section": "3 Initial GSEA Plot",
+    "text": "3 Initial GSEA Plot"
+  },
+  {
+    "objectID": "results.html#dotplot",
+    "href": "results.html#dotplot",
+    "title": "Results",
+    "section": "4 dotplot",
+    "text": "4 dotplot"
+  },
+  {
+    "objectID": "results.html#umap",
+    "href": "results.html#umap",
+    "title": "Results",
+    "section": "5 UMAP",
+    "text": "5 UMAP"
   }
 ]
