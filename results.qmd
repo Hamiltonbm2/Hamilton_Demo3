@@ -2,8 +2,16 @@
 title: "Results"
 ---
 
-## Key findings (draft)
-Add bullet points as you go.
+## Key findings
+
+- ALD is associated with widespread transcriptional changes across liver cell populations, with distinct gene expression patterns observed between disease and control samples.
+- Cell-type composition and behavior are altered in ALD, indicating that disease progression involves both shifts in cell abundance and functional state.
+- Immune cells show the most pronounced changes, with coordinated downregulation of immune-related pathways across multiple cell types.
+- B cells exhibit the strongest suppression of immune pathways, suggesting impaired humoral immune function in ALD.
+- Monocytes display evidence of functional reprogramming, characterized by decreased immune activity alongside increased metabolic (ATP-related) pathway enrichment.
+- Pathway-level changes are highly cell-type specific, highlighting the importance of single-cell resolution for understanding disease mechanisms.
+
+Overall, these results support immune dysfunction and metabolic alteration as central features of ALD pathophysiology.
 
 ## Figures
 Add figures as you generate them. Example:

@@ -128,9 +128,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#initial-gsea-plot" id="toc-initial-gsea-plot" class="nav-link" data-scroll-target="#initial-gsea-plot"><span class="header-section-number">3</span> Initial GSEA Plot</a></li>
   <li><a href="#dotplot" id="toc-dotplot" class="nav-link" data-scroll-target="#dotplot"><span class="header-section-number">4</span> dotplot</a></li>
   <li><a href="#umap" id="toc-umap" class="nav-link" data-scroll-target="#umap"><span class="header-section-number">5</span> UMAP</a></li>
-  <li><a href="#rolodex-of-cell-type-gsea-individual" id="toc-rolodex-of-cell-type-gsea-individual" class="nav-link" data-scroll-target="#rolodex-of-cell-type-gsea-individual"><span class="header-section-number">6</span> Rolodex of Cell type GSEA (individual)</a></li>
-  <li><a href="#interactive-gsea-by-cell-type" id="toc-interactive-gsea-by-cell-type" class="nav-link" data-scroll-target="#interactive-gsea-by-cell-type"><span class="header-section-number">7</span> Interactive GSEA by Cell Type</a></li>
-  <li><a href="#interactive-featureplot-viewer-by-cell-type" id="toc-interactive-featureplot-viewer-by-cell-type" class="nav-link" data-scroll-target="#interactive-featureplot-viewer-by-cell-type"><span class="header-section-number">8</span> Interactive FeaturePlot Viewer by Cell Type</a></li>
+  <li><a href="#interactive-gsea-by-cell-type" id="toc-interactive-gsea-by-cell-type" class="nav-link" data-scroll-target="#interactive-gsea-by-cell-type"><span class="header-section-number">6</span> Interactive GSEA by Cell Type</a></li>
+  <li><a href="#interactive-featureplot-viewer-by-cell-type" id="toc-interactive-featureplot-viewer-by-cell-type" class="nav-link" data-scroll-target="#interactive-featureplot-viewer-by-cell-type"><span class="header-section-number">7</span> Interactive FeaturePlot Viewer by Cell Type</a></li>
   </ul>
 </nav>
     </div>
@@ -158,7 +157,15 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="key-findings-draft" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="key-findings-draft"><span class="header-section-number">1</span> Key findings (draft)</h2>
-<p>Add bullet points as you go.</p>
+<ul>
+<li>ALD is associated with widespread transcriptional changes across liver cell populations, with distinct gene expression patterns observed between disease and control samples.</li>
+<li>Cell-type composition and behavior are altered in ALD, indicating that disease progression involves both shifts in cell abundance and functional state.</li>
+<li>Immune cells show the most pronounced changes, with coordinated downregulation of immune-related pathways across multiple cell types.</li>
+<li>B cells exhibit the strongest suppression of immune pathways, suggesting impaired humoral immune function in ALD.</li>
+<li>Monocytes display evidence of functional reprogramming, characterized by decreased immune activity alongside increased metabolic (ATP-related) pathway enrichment.</li>
+<li>Pathway-level changes are highly cell-type specific, highlighting the importance of single-cell resolution for understanding disease mechanisms.</li>
+</ul>
+<p>Overall, these results support immune dysfunction and metabolic alteration as central features of ALD pathophysiology.</p>
 </section>
 <section id="figures" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="figures"><span class="header-section-number">2</span> Figures</h2>
@@ -176,11 +183,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="5" class="anchored" data-anchor-id="umap"><span class="header-section-number">5</span> UMAP</h2>
 <p><img src="figures/fig03_UMAP_CellTypes.png" class="img-fluid" data-fig-cap="UMAP comparing cell clusters"></p>
 </section>
-<section id="rolodex-of-cell-type-gsea-individual" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="rolodex-of-cell-type-gsea-individual"><span class="header-section-number">6</span> Rolodex of Cell type GSEA (individual)</h2>
-</section>
-<section id="interactive-gsea-by-cell-type" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="interactive-gsea-by-cell-type"><span class="header-section-number">7</span> Interactive GSEA by Cell Type</h2>
+<section id="interactive-gsea-by-cell-type" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="interactive-gsea-by-cell-type"><span class="header-section-number">6</span> Interactive GSEA by Cell Type</h2>
 <p>To avoid stacking all cell-type-specific pathway enrichment plots vertically, this section provides an interactive viewer for comparing GSEA results across annotated liver cell populations. Use the dropdown menu or the previous/next buttons to browse enrichment patterns for each cell type.</p>
 <div style="max-width: 1200px;">
 <p><label for="gseaSelect"><strong>Select GSEA plot:</strong></label> <select id="gseaSelect" onchange="updateGSEA()" style="margin-left: 8px; padding: 4px;"> <option value="figures/celltype_proportions_ALD_vs_Control.png" selected="">Cell Type Proportions: ALD vs Control</option> <option value="figures/GSEA_Test_B_Cells.png">GSEA - B Cells</option> <option value="figures/GSEA_Test_CDCs.png">GSEA - cDCs</option> <option value="figures/GSEA_Test_cholangiocytes.png">GSEA - Cholangiocytes</option> <option value="figures/GSEA_Test_Endothelial_Cells.png">GSEA - Endothelial Cells</option> <option value="figures/GSEA_Test_Hepatocytes.png">GSEA - Hepatocytes</option> <option value="figures/GSEA_Test_Kupffer_Cells.png">GSEA - Kupffer Cells</option> <option value="figures/GSEA_Test_Monocytes.png">GSEA - Monocytes</option> <option value="figures/GSEA_Test_NK_Cells.png">GSEA - NK Cells</option> <option value="figures/GSEA_Test_Stellate_Cells.png">GSEA - Stellate Cells</option> <option value="figures/GSEA_Test_T_Cells.png">GSEA - T Cells</option> <option value="figures/immune_DE_magnitude_barplot.png">Immune Cell Transcriptional Disruption</option> <option value="figures/immune_GSEA_heatmap.png">Immune Pathway Activation Heatmap</option> </select></p>
@@ -230,8 +234,8 @@ function prevGSEA() {
 }
 </script>
 </section>
-<section id="interactive-featureplot-viewer-by-cell-type" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="interactive-featureplot-viewer-by-cell-type"><span class="header-section-number">8</span> Interactive FeaturePlot Viewer by Cell Type</h2>
+<section id="interactive-featureplot-viewer-by-cell-type" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="interactive-featureplot-viewer-by-cell-type"><span class="header-section-number">7</span> Interactive FeaturePlot Viewer by Cell Type</h2>
 <p>This viewer allows interactive comparison of marker-based feature plots used to validate cell-type annotations across the integrated UMAP. Use the dropdown menu or the previous/next buttons to browse marker panels for each annotated cell population.</p>
 <div style="max-width: 1200px;">
 <p><label for="featureSelect"><strong>Select feature plot:</strong></label> <select id="featureSelect" onchange="updateFeaturePlot()" style="margin-left: 8px; padding: 4px;"> <option value="figures/FeaturePlot_B_cells_Marker.png" selected="">B Cells Markers</option> <option value="figures/FeaturePlot_cDCs_Marker.png">cDC Markers</option> <option value="figures/FeaturePlot_Cholangiocytes_Marker.png">Cholangiocyte Markers</option> <option value="figures/FeaturePlot_Endothelial_cells_Marker.png">Endothelial Cell Markers</option> <option value="figures/FeaturePlot_gdT_NKT_Marker.png">gdT / NKT Markers</option> <option value="figures/FeaturePlot_Hepatocyte_stress_Marker.png">Hepatocyte Stress Markers</option> <option value="figures/FeaturePlot_Hepatocytes_Marker.png">Hepatocyte Markers</option> <option value="figures/FeaturePlot_Kupffer_cells_Marker.png">Kupffer Cell Markers</option> <option value="figures/FeaturePlot_Monocytes_Marker.png">Monocyte Markers</option> <option value="figures/FeaturePlot_NK_cells_Marker.png">NK Cell Markers</option> <option value="figures/FeaturePlot_pDCs_Marker.png">pDC Markers</option> <option value="figures/FeaturePlot_Stellate_cells_Marker.png">Stellate Cell Markers</option> <option value="figures/FeaturePlot_T_cells_Marker.png">T Cell Markers</option> </select></p>

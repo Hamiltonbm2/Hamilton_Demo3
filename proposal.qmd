@@ -3,8 +3,7 @@ title: "Proposal"
 ---
 
 ## Research question
-State your main question in 1–2 sentences. We are just using plain text here. For example Alcohol-associated liver disease is influenced by both genetic and
-environmental factors. In this project, we analyze publicly available transcriptomic data to evaluate...
+Alcohol-associated liver disease (ALD) disrupts normal immune and metabolic processes in the liver. In this project, we analyze single-cell transcriptomic data to investigate how pathway activity shifts across cell types, examining evidence of immune suppression and metabolic reprogramming in immune cells.
 
 ## Dataset(s)
 - Source: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE236382&utm_source (ALD Data)
