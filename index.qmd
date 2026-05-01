@@ -2,6 +2,7 @@
 title: "Single Cell Analysis of Alcohol Liver Disease"
 subtitle: "BNFO 420 Capstone - Group 4"
 bibliography: references.bib
+nocite: '@*'
 ---
 
 ## Abstract
@@ -44,7 +45,7 @@ This project has several important limitations. First, the ALD dataset (n = 5) a
 
 ## Future Work
 
-Several directions could extend this project in scientifically meaningful ways. First, analyzing larger and more diverse patient cohorts would improve statistical power and allow investigation of how ALD severity, sex, and genetic background interact with immune cell transcription. Second, multi-omic approaches combining single-cell RNA sequencing with ATAC-seq or proteomics could reveal whether transcriptional changes are accompanied by changes in chromatin accessibility or protein-level immune activity. Third, trajectory analysis methods such as Monocle or RNA velocity could model how monocyte and T cell populations transition between functional states during ALD progression. Fourth, the complement suppression signature observed across multiple cell types warrants functional follow-up — experiments in liver organoids or animal models could test whether restoring complement activity affects disease outcome. Finally, integrating spatial transcriptomics data would connect cell-type findings to their histological context within the liver, linking molecular results to tissue architecture.
+Several directions could extend this project in scientifically meaningful ways. First, analyzing larger and more diverse patient cohorts would improve statistical power and allow investigation of how ALD severity, sex, and genetic background interact with immune cell transcription. Second, multi-omic approaches combining single-cell RNA sequencing with ATAC-seq or proteomics could reveal whether transcriptional changes are accompanied by changes in chromatin accessibility or protein-level immune activity. Third, trajectory analysis methods such as Monocle or RNA velocity could model how monocyte and T cell populations transition between functional states during ALD progression. Fourth, the complement suppression signature observed across multiple cell types warrants functional follow-up experiments in liver organoids or animal models could test whether restoring complement activity affects disease outcome. Finally, integrating spatial transcriptomics data would connect cell-type findings to their histological context within the liver, linking molecular results to tissue architecture.
 
 ---
 
@@ -78,4 +79,4 @@ Several directions could extend this project in scientifically meaningful ways. 
 - **Figures:** `figures/`
 - **Citations:** `references.bib`
 
-## references
+## References

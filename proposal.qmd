@@ -1,5 +1,6 @@
 ---
 title: "Proposal"
+bibliography : references.bib
 ---
 
 ## Research question
@@ -11,7 +12,7 @@ Alcohol-associated liver disease (ALD) disrupts normal immune and metabolic proc
 
 - Source: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE236382&utm_source (ALD Data)
 - Sample size: n = 5
-- Key variables:
+- Key variables: Single-cell gene expression counts per cell; disease status (ALD); cell barcode and sample of origin
 - License/usage notes: Public Access (NCBI)
 
 **Control Dataset**
@@ -41,3 +42,6 @@ The pipeline below shows the full planned/executed workflow from raw data to fin
 - Website sections
 - Key figures/tables
 - Any optional stretch goals
+
+## References
+

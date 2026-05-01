@@ -3,16 +3,11 @@ title: "Team"
 ---
 
 ## Members
-- Brayden Hamilton — data cleaning, EDA (data cleaning, EDA, modeling, writing)
-- Sofia Haider — data cleaning, EDA
-- Lojy Hozyen — data cleaning, EDA
-- Raymond Truong — modeling, writing
-- Michael Ezeogu - modeling, writing
+- Brayden Hamilton — Website configuration and interpretation with the data
+- Sofia Haider — Literature comparison and results synthesis interpretation with the data
+- Lojy Hozyen — Results synthesis and interpretation with the data
+- Raymond Truong — interpretation with the data
+- Michael Ezeogu - Coding the figures and interpretation with the data
 
-## Collaboration rules (simple)
-- Pull before you start work.
-- Commit small changes with clear messages.
-- Only one person edits the *same* `.qmd` file at a time.
-- Use Issues (optional) for tasks/bugs.
 
 

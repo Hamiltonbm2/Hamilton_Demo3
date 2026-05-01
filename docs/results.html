@@ -144,13 +144,12 @@ div.csl-indent {
   <ul>
   <li><a href="#key-findings" id="toc-key-findings" class="nav-link active" data-scroll-target="#key-findings"><span class="header-section-number">1</span> Key findings</a></li>
   <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures"><span class="header-section-number">2</span> Figures</a></li>
-  <li><a href="#initial-gsea-plot" id="toc-initial-gsea-plot" class="nav-link" data-scroll-target="#initial-gsea-plot"><span class="header-section-number">3</span> Initial GSEA Plot</a></li>
-  <li><a href="#dotplot" id="toc-dotplot" class="nav-link" data-scroll-target="#dotplot"><span class="header-section-number">4</span> dotplot</a></li>
-  <li><a href="#umap" id="toc-umap" class="nav-link" data-scroll-target="#umap"><span class="header-section-number">5</span> UMAP</a></li>
-  <li><a href="#interactive-gsea-by-cell-type" id="toc-interactive-gsea-by-cell-type" class="nav-link" data-scroll-target="#interactive-gsea-by-cell-type"><span class="header-section-number">6</span> Interactive GSEA by Cell Type</a></li>
-  <li><a href="#interactive-featureplot-viewer-by-cell-type" id="toc-interactive-featureplot-viewer-by-cell-type" class="nav-link" data-scroll-target="#interactive-featureplot-viewer-by-cell-type"><span class="header-section-number">7</span> Interactive FeaturePlot Viewer by Cell Type</a></li>
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">8</span> discussion</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">9</span> references</a></li>
+  <li><a href="#dotplot" id="toc-dotplot" class="nav-link" data-scroll-target="#dotplot"><span class="header-section-number">3</span> dotplot</a></li>
+  <li><a href="#umap" id="toc-umap" class="nav-link" data-scroll-target="#umap"><span class="header-section-number">4</span> UMAP</a></li>
+  <li><a href="#interactive-gsea-by-cell-type" id="toc-interactive-gsea-by-cell-type" class="nav-link" data-scroll-target="#interactive-gsea-by-cell-type"><span class="header-section-number">5</span> Interactive GSEA by Cell Type</a></li>
+  <li><a href="#interactive-featureplot-viewer-by-cell-type" id="toc-interactive-featureplot-viewer-by-cell-type" class="nav-link" data-scroll-target="#interactive-featureplot-viewer-by-cell-type"><span class="header-section-number">6</span> Interactive FeaturePlot Viewer by Cell Type</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">7</span> discussion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8</span> references</a></li>
   </ul>
 </nav>
     </div>
@@ -191,21 +190,23 @@ div.csl-indent {
 </section>
 <section id="figures" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="figures"><span class="header-section-number">2</span> Figures</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/fig01_GSEA1.png" class="img-fluid figure-img"></p>
+<figcaption>Initial GSEA Plot</figcaption>
+</figure>
+</div>
 </section>
-<section id="initial-gsea-plot" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="initial-gsea-plot"><span class="header-section-number">3</span> Initial GSEA Plot</h2>
-<p><img src="figures/fig01_GSEA1.png" class="img-fluid" data-fig-cap="GSEA results showing metabolic pathway enrichment."></p>
-</section>
-<section id="dotplot" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="dotplot"><span class="header-section-number">4</span> dotplot</h2>
+<section id="dotplot" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="dotplot"><span class="header-section-number">3</span> dotplot</h2>
 <p><img src="figures/fig02_dotplot.png" class="img-fluid" data-fig-cap="dotplot results comparing cell types with average gene expression of common markers."></p>
 </section>
-<section id="umap" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="umap"><span class="header-section-number">5</span> UMAP</h2>
+<section id="umap" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="umap"><span class="header-section-number">4</span> UMAP</h2>
 <p><img src="figures/fig03_UMAP_CellTypes.png" class="img-fluid" data-fig-cap="UMAP comparing cell clusters"></p>
 </section>
-<section id="interactive-gsea-by-cell-type" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="interactive-gsea-by-cell-type"><span class="header-section-number">6</span> Interactive GSEA by Cell Type</h2>
+<section id="interactive-gsea-by-cell-type" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="interactive-gsea-by-cell-type"><span class="header-section-number">5</span> Interactive GSEA by Cell Type</h2>
 <p>To avoid stacking all cell-type-specific pathway enrichment plots vertically, this section provides an interactive viewer for comparing GSEA results across annotated liver cell populations. Use the dropdown menu or the previous/next buttons to browse enrichment patterns for each cell type.</p>
 <div style="max-width: 1200px;">
 <p><label for="gseaSelect"><strong>Select GSEA plot:</strong></label> <select id="gseaSelect" onchange="updateGSEA()" style="margin-left: 8px; padding: 4px;"> <option value="figures/celltype_proportions_ALD_vs_Control.png" selected="">Cell Type Proportions: ALD vs Control</option> <option value="figures/GSEA_Test_B_Cells.png">GSEA - B Cells</option> <option value="figures/GSEA_Test_CDCs.png">GSEA - cDCs</option> <option value="figures/GSEA_Test_cholangiocytes.png">GSEA - Cholangiocytes</option> <option value="figures/GSEA_Test_Endothelial_Cells.png">GSEA - Endothelial Cells</option> <option value="figures/GSEA_Test_Hepatocytes.png">GSEA - Hepatocytes</option> <option value="figures/GSEA_Test_Kupffer_Cells.png">GSEA - Kupffer Cells</option> <option value="figures/GSEA_Test_Monocytes.png">GSEA - Monocytes</option> <option value="figures/GSEA_Test_NK_Cells.png">GSEA - NK Cells</option> <option value="figures/GSEA_Test_Stellate_Cells.png">GSEA - Stellate Cells</option> <option value="figures/GSEA_Test_T_Cells.png">GSEA - T Cells</option> <option value="figures/immune_DE_magnitude_barplot.png">Immune Cell Transcriptional Disruption</option> <option value="figures/immune_GSEA_heatmap.png">Immune Pathway Activation Heatmap</option> </select></p>
@@ -255,8 +256,8 @@ function prevGSEA() {
 }
 </script>
 </section>
-<section id="interactive-featureplot-viewer-by-cell-type" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="interactive-featureplot-viewer-by-cell-type"><span class="header-section-number">7</span> Interactive FeaturePlot Viewer by Cell Type</h2>
+<section id="interactive-featureplot-viewer-by-cell-type" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="interactive-featureplot-viewer-by-cell-type"><span class="header-section-number">6</span> Interactive FeaturePlot Viewer by Cell Type</h2>
 <p>This viewer allows interactive comparison of marker-based feature plots used to validate cell-type annotations across the integrated UMAP. Use the dropdown menu or the previous/next buttons to browse marker panels for each annotated cell population.</p>
 <div style="max-width: 1200px;">
 <p><label for="featureSelect"><strong>Select feature plot:</strong></label> <select id="featureSelect" onchange="updateFeaturePlot()" style="margin-left: 8px; padding: 4px;"> <option value="figures/FeaturePlot_B_cells_Marker.png" selected="">B Cells Markers</option> <option value="figures/FeaturePlot_cDCs_Marker.png">cDC Markers</option> <option value="figures/FeaturePlot_Cholangiocytes_Marker.png">Cholangiocyte Markers</option> <option value="figures/FeaturePlot_Endothelial_cells_Marker.png">Endothelial Cell Markers</option> <option value="figures/FeaturePlot_gdT_NKT_Marker.png">gdT / NKT Markers</option> <option value="figures/FeaturePlot_Hepatocyte_stress_Marker.png">Hepatocyte Stress Markers</option> <option value="figures/FeaturePlot_Hepatocytes_Marker.png">Hepatocyte Markers</option> <option value="figures/FeaturePlot_Kupffer_cells_Marker.png">Kupffer Cell Markers</option> <option value="figures/FeaturePlot_Monocytes_Marker.png">Monocyte Markers</option> <option value="figures/FeaturePlot_NK_cells_Marker.png">NK Cell Markers</option> <option value="figures/FeaturePlot_pDCs_Marker.png">pDC Markers</option> <option value="figures/FeaturePlot_Stellate_cells_Marker.png">Stellate Cell Markers</option> <option value="figures/FeaturePlot_T_cells_Marker.png">T Cell Markers</option> </select></p>
@@ -306,23 +307,23 @@ function prevFeaturePlot() {
 </script>
 <hr>
 </section>
-<section id="discussion" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="discussion"><span class="header-section-number">8</span> discussion</h2>
-<p>The results of this project support the hypothesis that immune cell populations in ALD livers actively show distinct gene-expression changes compared to healthy, control livers. Importantly, these changes are not uniform across immune populations — each cell type shows a distinct transcriptional signature, which highlights the importance of single-cell resolution for understanding ALD pathophysiology.</p>
-<p>The most prominent finding was the strong transcriptional disruption in T cells, which also increased in proportion in ALD. This combination of increased abundance and loss of cytotoxic effector programs is consistent with published reports of T cell exhaustion and dysfunction in chronic liver disease <span class="citation" data-cites="li2019 albillos2014">(<a href="#ref-li2019" role="doc-biblioref">Li et al. 2019</a>; <a href="#ref-albillos2014" role="doc-biblioref">Albillos et al. 2014</a>)</span>. In healthy liver, T cells and NK cells together provide cytotoxic immune surveillance. The parallel suppression of NK cell cytotoxic pathways observed here — alongside decreased NK cell abundance — suggests that both arms of cytotoxic immunity are simultaneously weakened in ALD. This finding aligns with work showing that NK cell activity is impaired in patients with alcoholic liver disease <span class="citation" data-cites="ju2015">(<a href="#ref-ju2015" role="doc-biblioref">Ju and Mandrekar 2015</a>)</span>.</p>
+<section id="discussion" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="discussion"><span class="header-section-number">7</span> discussion</h2>
+<p>The results of this project support the hypothesis that immune cell populations in ALD livers actively show distinct gene-expression changes compared to healthy, control livers. Importantly, these changes are not uniform across immune populations, each cell type shows a distinct transcriptional signature, which highlights the importance of single-cell resolution for understanding ALD pathophysiology.</p>
+<p>The most prominent finding was the strong transcriptional disruption in T cells, which also increased in proportion in ALD. This combination of increased abundance and loss of cytotoxic effector programs is consistent with published reports of T cell exhaustion and dysfunction in chronic liver disease <span class="citation" data-cites="li2019 albillos2014">(<a href="#ref-li2019" role="doc-biblioref">Li et al. 2019</a>; <a href="#ref-albillos2014" role="doc-biblioref">Albillos et al. 2014</a>)</span>. In healthy liver, T cells and NK cells together provide cytotoxic immune surveillance. The parallel suppression of NK cell cytotoxic pathways observed here, alongside decreased NK cell abundance.This suggests that both arms of cytotoxic immunity are simultaneously weakened in ALD. This finding aligns with work showing that NK cell activity is impaired in patients with alcoholic liver disease <span class="citation" data-cites="ju2015">(<a href="#ref-ju2015" role="doc-biblioref">Ju and Mandrekar 2015</a>)</span>.</p>
 <p>Monocyte findings support the concept of immunometabolic reprogramming in ALD. The shift toward increased metabolic (ATP-related) pathway activity alongside decreased inflammatory immune signaling is consistent with the idea that monocytes in chronically inflamed tissue can transition from classically activated, pro-inflammatory states to altered metabolic states <span class="citation" data-cites="oishi2024 mcclain2002">(<a href="#ref-oishi2024" role="doc-biblioref">Oishi et al. 2024</a>; <a href="#ref-mcclain2002" role="doc-biblioref">McClain et al. 2002</a>)</span>. A similar monocyte metabolic shift has been reported in other inflammatory contexts, including viral infection <span class="citation" data-cites="cory2021">(<a href="#ref-cory2021" role="doc-biblioref">Cory et al. 2021</a>)</span>, lending biological plausibility to the ALD findings reported here.</p>
-<p>The complement suppression signal observed broadly across cell types — including non-immune populations such as hepatocytes and endothelial cells — represents perhaps the most novel finding of this project. While complement dysfunction has been described in liver disease generally <span class="citation" data-cites="gao2011">(<a href="#ref-gao2011" role="doc-biblioref">Gao and Bataller 2011</a>)</span>, the consistency of complement pathway suppression across nearly all annotated cell types in this dataset suggests a systemic and widespread disruption of immune homeostasis rather than a cell-type-specific effect. This shared signal may represent a meaningful new observation about the breadth of immune dysregulation in ALD.</p>
-<p>Conventional dendritic cells stood out as an exception. Unlike other immune populations, cDCs upregulated antigen presentation and T-cell priming pathways in ALD. This is consistent with published work showing that dendritic cells can remain or become more active in inflammatory environments even when other immune populations are suppressed <span class="citation" data-cites="krenkel2017">(<a href="#ref-krenkel2017" role="doc-biblioref">Krenkel and Tacke 2017</a>)</span>. Continued cDC activity alongside T cell and NK cell dysfunction could contribute to chronic, non-resolving inflammation — a hallmark of advanced ALD.</p>
+<p>The complement suppression signal observed broadly across cell types, including non-immune populations such as hepatocytes and endothelial cells, represent perhaps the most novel finding of this project. While complement dysfunction has been described in liver disease generally <span class="citation" data-cites="gao2011">(<a href="#ref-gao2011" role="doc-biblioref">Gao and Bataller 2011</a>)</span>, the consistency of complement pathway suppression across nearly all annotated cell types in this dataset suggests a systemic and widespread disruption of immune homeostasis rather than a cell-type-specific effect. This shared signal may represent a meaningful new observation about the breadth of immune dysregulation in ALD.</p>
+<p>Conventional dendritic cells stood out as an exception. Unlike other immune populations, cDCs upregulated antigen presentation and T-cell priming pathways in ALD. This is consistent with published work showing that dendritic cells can remain or become more active in inflammatory environments even when other immune populations are suppressed <span class="citation" data-cites="krenkel2017">(<a href="#ref-krenkel2017" role="doc-biblioref">Krenkel and Tacke 2017</a>)</span>. Continued cDC activity alongside T cell and NK cell dysfunction could contribute to chronic, non-resolving inflammation, a hallmark of advanced ALD.</p>
 <p>Hepatocyte findings, including reduced expression of <em>ALB</em> and <em>APOB</em>, are consistent with impaired metabolic liver function in ALD and align with clinical observations of hypoalbuminemia and dyslipidemia in patients with alcoholic liver disease <span class="citation" data-cites="seitz2018 crabb2020">(<a href="#ref-seitz2018" role="doc-biblioref">Seitz et al. 2018</a>; <a href="#ref-crabb2020" role="doc-biblioref">Crabb et al. 2020</a>)</span>. Taken together, the transcriptional landscape identified here is consistent with ALD being understood not only as direct hepatocyte injury from alcohol metabolism, but as a disease in which immune dysregulation actively shapes disease progression.</p>
 </section>
-<section id="references" class="level2" data-number="9">
+<section id="references" class="level2" data-number="8">
 
 
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">9 references</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">8 references</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-albillos2014" class="csl-entry" role="listitem">
 Albillos, A., M. Lario, and M. Álvarez-Mon. 2014. <span>“Cirrhosis-Associated Immune Dysfunction: Distinctive Features and Clinical Relevance.”</span> <em>Journal of Hepatology</em> 61 (6): 1385–96. <a href="https://doi.org/10.1016/j.jhep.2014.08.010">https://doi.org/10.1016/j.jhep.2014.08.010</a>.
 </div>
