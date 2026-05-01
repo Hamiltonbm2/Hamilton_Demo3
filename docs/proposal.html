@@ -23,7 +23,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -158,21 +177,35 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="datasets" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="datasets"><span class="header-section-number">2</span> Dataset(s)</h2>
+<p><strong>ALD Dataset</strong></p>
 <ul>
-<li><p>Source: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE236382&amp;utm_source (ALD Data)</p></li>
-<li><p>Sample size: n = 5</p></li>
-<li><p>Key variables:</p></li>
-<li><p>License/usage notes: Public Access (NCBI)</p></li>
-<li><p>Source: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE115469 (Control Data)</p></li>
-<li><p>Sample size: n = 5</p></li>
-<li><p>Key variables:</p></li>
-<li><p>License/usage notes: Public Access (NCBI)</p></li>
+<li>Source: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE236382&amp;utm_source (ALD Data)</li>
+<li>Sample size: n = 5</li>
+<li>Key variables:</li>
+<li>License/usage notes: Public Access (NCBI)</li>
+</ul>
+<p><strong>Control Dataset</strong></p>
+<ul>
+<li>Source: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE115469 (Control Data)</li>
+<li>Sample size: n = 5</li>
+<li>Key variables:</li>
+<li>License/usage notes: Public Access (NCBI)</li>
 </ul>
 </section>
 <section id="planned-analysis" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="planned-analysis"><span class="header-section-number">3</span> Planned analysis</h2>
-<p><img src="figures/Capstone_Pipeline_Website.png" class="img-fluid" data-fig-cap="Project Workflow Pipeline"></p>
-<p>Describe your plan in bullets: - Cleaning/QC - Visualizations - Statistical/ML approach - How you’ll validate (train/test, CV, sensitivity checks, etc.)</p>
+<p>The pipeline below shows the full planned/executed workflow from raw data to final figures:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Capstone_Pipeline_Website.png" class="img-fluid figure-img"></p>
+<figcaption>Project Workflow Pipeline</figcaption>
+</figure>
+</div>
+<p><strong>Cleaning / QC:</strong> Cells were filtered by minimum gene count (≥200), maximum gene count (≤6,000), and mitochondrial content (≤20%) to remove empty droplets, doublets, and damaged cells. Highly variable genes were identified and data were log-normalized.</p>
+<p><strong>Integration:</strong> Because the two datasets originated from different studies, Seurat integration was applied to remove batch effects before joint clustering <span class="citation" data-cites="hao2021">(<a href="#ref-hao2021" role="doc-biblioref">Hao et al. 2021</a>)</span>.</p>
+<p><strong>Visualizations:</strong> UMAP plots were used to visualize cell clusters. Dot plots and feature plots were used to confirm cell-type annotations based on canonical marker genes.</p>
+<p><strong>Statistical/ML approach:</strong> Differential expression was performed within each annotated cell type using a Wilcoxon rank-sum test (adjusted p &lt; 0.05, |log2FC| &gt; 0.25). GSEA was performed using the fgsea package with MSigDB Hallmark gene sets, ranked by log2 fold-change <span class="citation" data-cites="subramanian2005 liberzon2015">(<a href="#ref-subramanian2005" role="doc-biblioref">Subramanian et al. 2005</a>; <a href="#ref-liberzon2015" role="doc-biblioref">Liberzon et al. 2015</a>)</span>.</p>
+<p><strong>Validation:</strong> Results were validated by cross-referencing marker gene patterns with published human liver single-cell atlases <span class="citation" data-cites="macparland2018 aizarani2019">(<a href="#ref-macparland2018" role="doc-biblioref">MacParland et al. 2018</a>; <a href="#ref-aizarani2019" role="doc-biblioref">Aizarani et al. 2019</a>)</span>. Cell-type proportion results were checked for consistency with known ALD immune phenotypes from the literature <span class="citation" data-cites="ju2015 krenkel2017">(<a href="#ref-ju2015" role="doc-biblioref">Ju and Mandrekar 2015</a>; <a href="#ref-krenkel2017" role="doc-biblioref">Krenkel and Tacke 2017</a>)</span>.</p>
 </section>
 <section id="deliverables" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">4</span> Deliverables</h2>
@@ -183,9 +216,32 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 
 
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-aizarani2019" class="csl-entry" role="listitem">
+Aizarani, N., A. Saviano, Sagar, et al. 2019. <span>“A Human Liver Cell Atlas Reveals Heterogeneity and Epithelial Progenitors.”</span> <em>Nature</em> 572: 199–204. <a href="https://doi.org/10.1038/s41586-019-1373-2">https://doi.org/10.1038/s41586-019-1373-2</a>.
+</div>
+<div id="ref-hao2021" class="csl-entry" role="listitem">
+Hao, Y., S. Hao, E. Andersen-Nissen, et al. 2021. <span>“Integrated Analysis of Multimodal Single-Cell Data.”</span> <em>Cell</em> 184 (13): 3573–87. <a href="https://doi.org/10.1016/j.cell.2021.04.048">https://doi.org/10.1016/j.cell.2021.04.048</a>.
+</div>
+<div id="ref-ju2015" class="csl-entry" role="listitem">
+Ju, C., and P. Mandrekar. 2015. <span>“Macrophages and Alcohol-Related Liver Inflammation.”</span> <em>Alcohol Research: Current Reviews</em> 37 (2): 251–62.
+</div>
+<div id="ref-krenkel2017" class="csl-entry" role="listitem">
+Krenkel, O., and F. Tacke. 2017. <span>“Liver Macrophages in Tissue Homeostasis and Disease.”</span> <em>Nature Reviews Immunology</em> 17 (5): 306–21. <a href="https://doi.org/10.1038/nri.2017.11">https://doi.org/10.1038/nri.2017.11</a>.
+</div>
+<div id="ref-liberzon2015" class="csl-entry" role="listitem">
+Liberzon, A., C. Birger, H. Thorvaldsdóttir, M. Ghandi, J. P. Mesirov, and P. Tamayo. 2015. <span>“The Molecular Signatures Database Hallmark Gene Set Collection.”</span> <em>Cell Systems</em> 1 (6): 417–25. <a href="https://doi.org/10.1016/j.cels.2015.12.004">https://doi.org/10.1016/j.cels.2015.12.004</a>.
+</div>
+<div id="ref-macparland2018" class="csl-entry" role="listitem">
+MacParland, S. A., J. C. Liu, X. Z. Ma, et al. 2018. <span>“Single Cell RNA Sequencing of Human Liver Reveals Distinct Intrahepatic Macrophage Populations.”</span> <em>Nature Communications</em> 9: 4383. <a href="https://doi.org/10.1038/s41467-018-06318-7">https://doi.org/10.1038/s41467-018-06318-7</a>.
+</div>
+<div id="ref-subramanian2005" class="csl-entry" role="listitem">
+Subramanian, A., P. Tamayo, V. K. Mootha, et al. 2005. <span>“Gene Set Enrichment Analysis: A Knowledge-Based Approach for Interpreting Genome-Wide Expression Profiles.”</span> <em>Proceedings of the National Academy of Sciences</em> 102 (43): 15545–50. <a href="https://doi.org/10.1073/pnas.0506580102">https://doi.org/10.1073/pnas.0506580102</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

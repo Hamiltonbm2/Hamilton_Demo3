@@ -1,13 +1,52 @@
 ---
 title: "Single Cell Analysis of Alcohol Liver Disease"
 subtitle: "BNFO 420 Capstone - Group 4"
+bibliography: references.bib
 ---
 
-## One-paragraph summary
-This project examines whether immune cell populations show distinct gene-expression changes in alcohol-related liver disease (ALD) compared with healthy liver and whether these changes may contribute to disease pathology. To answer this question, we analyzed human single-cell RNA sequencing data from 5 ALD liver samples and 5 healthy control liver samples. Using a Seurat-based workflow, we performed quality control, normalization, dimensionality reduction, clustering, marker-gene annotation, differential expression analysis, cell-type proportion analysis, and gene set enrichment analysis (GSEA). This approach allowed us to evaluate both changes in cell abundance and changes in cell-specific transcriptional activity across disease conditions.
-Our results show that the immune response in ALD is not uniform. Instead, different immune cell populations display distinct and biologically meaningful patterns of dysfunction. T cells showed the strongest transcriptional changes, increased substantially in proportion, and lost key cytotoxic effector programs. NK cells also showed major suppression of cytotoxic pathways and decreased in abundance, suggesting weakening of the innate cytotoxic immune response. B cells showed reduced humoral immune and complement-related activity. Monocytes and Kupffer cells showed evidence of inflammatory metabolic reprogramming. In contrast, conventional dendritic cells upregulated antigen presentation and T-cell priming pathways, suggesting continued immune stimulation despite broader immune dysfunction. Across the dataset, complement suppression was the most consistent shared signal, appearing across both immune and non-immune cell populations and suggesting widespread disruption of immune homeostasis in the liver.
-These findings support the idea that immune dysfunction in ALD is not simply a secondary effect of liver injury, but may actively contribute to disease progression. This interpretation is strengthened by hepatocyte findings, including reduced expression of key functional markers such as ALB and APOB. This may suggest impaired normal liver function in ALD. Final figures include UMAP visualizations, PCA plots, cell-type proportion comparisons, marker-gene dot plots, differential expression plots, and pathway enrichment figures, all of which help illustrate how immune-cell dysfunction and hepatocyte impairment interact in ALD. Limitations include the nature of the dataset and the need to account for partial immune-transcript contamination in hepatocyte analyses.
+## Abstract
+Alcohol-associated liver disease, or ALD, is a major cause of liver damage and cirrhosis in the United States. ALD is often described as a disease caused by alcohol damaging hepatocytes, which are the main liver cells involved in metabolism. However, hepatocyte injury alone does not fully explain why only some heavy drinkers develop severe liver disease. Other factors, such as genetics, inflammation, and immune-cell activity, may also affect how ALD develops. This project tested the hypothesis that immune cell populations in ALD livers actively show distinct gene-expression changes compared to healthy, control livers.
+To study this question, we analyzed single-cell RNA sequencing data from human liver tissue. The dataset included five ALD liver samples and five healthy control liver samples. Single-cell RNA sequencing was useful because it allowed us to study gene expression in individual cell types instead of averaging all liver cells together. We used a Seurat-based workflow that included quality control, normalization, integration, dimensional reduction, clustering, cell-type identification, differential expression, and pathway analysis. Integration was important because the ALD and control samples came from different sources, so some differences could be caused by batch effects instead of true biological changes.
+UMAP clustering showed that liver and immune cells formed separate groups based on their gene-expression patterns. Marker gene feature plots helped confirm the identities of important immune populations, including monocytes and T cells. After identifying these cell types, we compared ALD and control samples. Cell proportion results suggested that immune cells, especially monocytes and T cells, were increased in ALD liver. Differential expression analysis showed that these immune cells also had changes in gene activity, not just changes in abundance. T cells showed strong gene-expression disruption, while monocytes showed pathway changes related to metabolism and immune regulation. Gene set enrichment analysis helped connect these gene changes to larger biological processes, including inflammation, complement activation, xenobiotic response, immune response, and metabolism.
+Overall, the results support the hypothesis that immune cell populations in ALD livers actively show distinct gene-expression changes compared to healthy, control livers. These findings suggest that ALD should be understood not only as liver-cell damage from alcohol, but also as a disease involving immune-cell dysregulation. This may help explain how alcohol-related liver injury becomes long-term inflammation and disease progression.
 
+---
+
+## Introduction
+
+Alcohol-associated liver disease, or ALD, is a liver disease caused by long-term harmful alcohol use [@bruha2012]. ALD can range from fat buildup in the liver to liver failure [@seitz2018]. It is important to study because alcohol-related liver disease is one of the leading causes of cirrhosis in the United States [@crabb2020]. The liver normally helps with metabolism and detoxification, so continued alcohol exposure can disrupt many liver functions at once [@ceni2014].
+
+Alcohol is mainly broken down in the liver by alcohol dehydrogenase, aldehyde dehydrogenase, and CYP2E1 [@gao2011]. This process can produce harmful byproducts that damage hepatocytes, the main liver cells involved in metabolism [@edenberg2018]. However, ALD is not only caused by direct hepatocyte damage. Many heavy drinkers never develop cirrhosis, showing that other factors affect disease risk [@bruha2012]. Twin studies also show that alcoholic cirrhosis occurs more often in identical twins than in fraternal twins, supporting a genetic role in ALD susceptibility [@whitfield1997]. Genes involved in alcohol metabolism, such as ADH1B, ADH1C, and ALDH2, can affect how alcohol is processed in the body [@edenberg2018]. Immune-related genes may also matter, since CTLA4, a gene involved in T-cell regulation, has been linked to alcoholic liver disease severity [@valenti2004].
+
+Immune cells are important in ALD because injured hepatocytes can release stress signals that activate inflammation [@gao2011]. Alcohol can also affect the gut, allowing bacterial products to reach the liver and trigger immune responses [@szabo2009]. Because of this, ALD involves immune cells such as Kupffer cells, monocytes, macrophages, neutrophils, and T cells [@ju2015]. Monocytes and macrophages respond to tissue injury and can increase inflammation when overactivated [@mcclain2002]. Kupffer cells are liver macrophages, while monocytes can be recruited from the blood during inflammation [@krenkel2017]. T cells help regulate adaptive immune responses and communicate with other immune cells [@li2019]. In chronic liver disease, some inflammatory pathways can increase while protective immune functions weaken [@albillos2014].
+
+Single-cell RNA sequencing is useful for this project because it measures gene expression in individual cells instead of averaging all liver cells together. This matters because the liver contains many different cell types, including hepatocytes, monocytes, T cells, Kupffer cells, endothelial cells, and cholangiocytes [@macparland2018]. Human liver single-cell studies show that these cell types can be identified by their distinct gene-expression patterns [@aizarani2019]. In this project, we analyzed single-cell RNA-seq data from five ALD liver samples and five healthy control liver samples using a Seurat-based workflow including quality control, normalization, integration, dimensional reduction, clustering, marker-based cell-type identification, differential expression, and pathway analysis [@stuart2019]. Normalization reduces technical noise in single-cell data [@hafemeister2019]. Integration was important because the ALD and control samples came from different sources, so some differences could reflect batch effects instead of true biology [@hao2021].
+
+After identifying cell types, we compared ALD and control samples to see whether immune cells showed active changes. Differential expression helped identify which immune cells had stronger gene-expression changes. Gene set enrichment analysis, or GSEA, was used to study biological pathways instead of only individual genes [@subramanian2005]. Literature connects gene-expression changes to processes such as immune response, inflammation, complement activation, xenobiotic response, and metabolism [@liberzon2015].
+
+A major focus of this project was whether monocytes and T cells show signs of immune dysregulation in ALD. Immune cells can change their metabolism during stress and inflammation, a process called immunometabolic reprogramming [@oishi2024]. Cory et al. showed that human monocytes exposed to SARS-CoV-2 spike protein shifted toward a more glycolysis-driven inflammatory state [@cory2021]. Although that study was not about ALD, it supports the idea that monocytes can actively change their metabolism during inflammatory stress, helping explain why monocyte metabolic pathway changes in ALD may be biologically meaningful.
+
+Overall, ALD should be understood as both hepatocyte injury and immune-cell dysregulation. Alcohol metabolism can damage hepatocytes, but immune cells may shape how that damage becomes inflammation and disease progression. By using single-cell RNA sequencing, this project investigates whether immune populations show distinct gene-expression changes in ALD compared with healthy liver.
+
+
+::: {.callout-note}
+## Hypothesis
+**Immune cell populations in ALD livers actively show distinct gene-expression changes compared to healthy, control livers.**
+:::
+
+---
+
+## Limitations
+
+This project has several important limitations. First, the ALD dataset (n = 5) and control dataset (n = 5) are both small, which limits statistical power and makes it difficult to fully separate biological variation from individual differences between donors. Second, the ALD and control samples came from two different GEO studies, meaning that some observed differences could reflect study-level batch effects even after integration. Third, hepatocyte clusters showed some immune transcript contamination, which may reflect true biology such as phagocytosis of immune cells, or may reflect technical ambient RNA signal from highly abundant immune transcripts. Fourth, cell-type annotations were based on canonical marker genes and may not fully capture rare or transitional cell states. Finally, this study is observational and cross-sectional and cannot establish causal relationships between immune changes and ALD progression. Future work using longitudinal samples, larger cohorts, and functional validation would be needed to confirm the biological mechanisms suggested by these findings.
+
+---
+
+## Future Work
+
+Several directions could extend this project in scientifically meaningful ways. First, analyzing larger and more diverse patient cohorts would improve statistical power and allow investigation of how ALD severity, sex, and genetic background interact with immune cell transcription. Second, multi-omic approaches combining single-cell RNA sequencing with ATAC-seq or proteomics could reveal whether transcriptional changes are accompanied by changes in chromatin accessibility or protein-level immune activity. Third, trajectory analysis methods such as Monocle or RNA velocity could model how monocyte and T cell populations transition between functional states during ALD progression. Fourth, the complement suppression signature observed across multiple cell types warrants functional follow-up — experiments in liver organoids or animal models could test whether restoring complement activity affects disease outcome. Finally, integrating spatial transcriptomics data would connect cell-type findings to their histological context within the liver, linking molecular results to tissue architecture.
+
+---
 
 
 ## Project roadmap (living)
@@ -30,7 +69,7 @@ These findings support the idea that immune dysfunction in ALD is not simply a s
 - [x] Final figures + interpretation  
   Generated UMAP plots, marker gene dot plots, and pathway enrichment figures. Interpreted results to show increased immune activation and disruption of metabolic pathways in ALD.
 
-- [ ] Limitations + ethics + reproducibility notes  
+- [x] Limitations + ethics + reproducibility notes  
   To be finalized; will include discussion of dataset size, global vs cell-type-specific analysis, and reproducibility through shared code and data sources.
   
 ## Where to find things
@@ -38,3 +77,5 @@ These findings support the idea that immune dysfunction in ALD is not simply a s
 - **Data notes:** `data/README.md`
 - **Figures:** `figures/`
 - **Citations:** `references.bib`
+
+## references

@@ -6,10 +6,15 @@ title: "Proposal"
 Alcohol-associated liver disease (ALD) disrupts normal immune and metabolic processes in the liver. In this project, we analyze single-cell transcriptomic data to investigate how pathway activity shifts across cell types, examining evidence of immune suppression and metabolic reprogramming in immune cells.
 
 ## Dataset(s)
+
+**ALD Dataset**
+
 - Source: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE236382&utm_source (ALD Data)
 - Sample size: n = 5
 - Key variables:
 - License/usage notes: Public Access (NCBI)
+
+**Control Dataset**
 
 - Source: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE115469 (Control Data)
 - Sample size: n = 5
@@ -18,13 +23,19 @@ Alcohol-associated liver disease (ALD) disrupts normal immune and metabolic proc
 
 ## Planned analysis
 
-![](figures/Capstone_Pipeline_Website.png){fig-cap="Project Workflow Pipeline"}
+The pipeline below shows the full planned/executed workflow from raw data to final figures:
 
-Describe your plan in bullets:
-- Cleaning/QC
-- Visualizations
-- Statistical/ML approach
-- How you’ll validate (train/test, CV, sensitivity checks, etc.)
+![Project Workflow Pipeline](figures/Capstone_Pipeline_Website.png){fig-cap="Project Workflow Pipeline"}
+
+**Cleaning / QC:** Cells were filtered by minimum gene count (≥200), maximum gene count (≤6,000), and mitochondrial content (≤20%) to remove empty droplets, doublets, and damaged cells. Highly variable genes were identified and data were log-normalized.
+
+**Integration:** Because the two datasets originated from different studies, Seurat integration was applied to remove batch effects before joint clustering [@hao2021].
+
+**Visualizations:** UMAP plots were used to visualize cell clusters. Dot plots and feature plots were used to confirm cell-type annotations based on canonical marker genes.
+
+**Statistical/ML approach:** Differential expression was performed within each annotated cell type using a Wilcoxon rank-sum test (adjusted p < 0.05, |log2FC| > 0.25). GSEA was performed using the fgsea package with MSigDB Hallmark gene sets, ranked by log2 fold-change [@subramanian2005; @liberzon2015].
+
+**Validation:** Results were validated by cross-referencing marker gene patterns with published human liver single-cell atlases [@macparland2018; @aizarani2019]. Cell-type proportion results were checked for consistency with known ALD immune phenotypes from the literature [@ju2015; @krenkel2017].
 
 ## Deliverables
 - Website sections

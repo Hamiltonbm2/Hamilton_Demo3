@@ -23,7 +23,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -123,9 +142,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#one-paragraph-summary" id="toc-one-paragraph-summary" class="nav-link active" data-scroll-target="#one-paragraph-summary"><span class="header-section-number">1</span> One-paragraph summary</a></li>
-  <li><a href="#project-roadmap-living" id="toc-project-roadmap-living" class="nav-link" data-scroll-target="#project-roadmap-living"><span class="header-section-number">2</span> Project roadmap (living)</a></li>
-  <li><a href="#where-to-find-things" id="toc-where-to-find-things" class="nav-link" data-scroll-target="#where-to-find-things"><span class="header-section-number">3</span> Where to find things</a></li>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract"><span class="header-section-number">1</span> Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">2</span> Introduction</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations"><span class="header-section-number">3</span> Limitations</a></li>
+  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work"><span class="header-section-number">4</span> Future Work</a></li>
+  <li><a href="#project-roadmap-living" id="toc-project-roadmap-living" class="nav-link" data-scroll-target="#project-roadmap-living"><span class="header-section-number">5</span> Project roadmap (living)</a></li>
+  <li><a href="#where-to-find-things" id="toc-where-to-find-things" class="nav-link" data-scroll-target="#where-to-find-things"><span class="header-section-number">6</span> Where to find things</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">7</span> references</a></li>
   </ul>
 </nav>
     </div>
@@ -152,12 +175,47 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="one-paragraph-summary" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="one-paragraph-summary"><span class="header-section-number">1</span> One-paragraph summary</h2>
-<p>This project examines whether immune cell populations show distinct gene-expression changes in alcohol-related liver disease (ALD) compared with healthy liver and whether these changes may contribute to disease pathology. To answer this question, we analyzed human single-cell RNA sequencing data from 5 ALD liver samples and 5 healthy control liver samples. Using a Seurat-based workflow, we performed quality control, normalization, dimensionality reduction, clustering, marker-gene annotation, differential expression analysis, cell-type proportion analysis, and gene set enrichment analysis (GSEA). This approach allowed us to evaluate both changes in cell abundance and changes in cell-specific transcriptional activity across disease conditions. Our results show that the immune response in ALD is not uniform. Instead, different immune cell populations display distinct and biologically meaningful patterns of dysfunction. T cells showed the strongest transcriptional changes, increased substantially in proportion, and lost key cytotoxic effector programs. NK cells also showed major suppression of cytotoxic pathways and decreased in abundance, suggesting weakening of the innate cytotoxic immune response. B cells showed reduced humoral immune and complement-related activity. Monocytes and Kupffer cells showed evidence of inflammatory metabolic reprogramming. In contrast, conventional dendritic cells upregulated antigen presentation and T-cell priming pathways, suggesting continued immune stimulation despite broader immune dysfunction. Across the dataset, complement suppression was the most consistent shared signal, appearing across both immune and non-immune cell populations and suggesting widespread disruption of immune homeostasis in the liver. These findings support the idea that immune dysfunction in ALD is not simply a secondary effect of liver injury, but may actively contribute to disease progression. This interpretation is strengthened by hepatocyte findings, including reduced expression of key functional markers such as ALB and APOB. This may suggest impaired normal liver function in ALD. Final figures include UMAP visualizations, PCA plots, cell-type proportion comparisons, marker-gene dot plots, differential expression plots, and pathway enrichment figures, all of which help illustrate how immune-cell dysfunction and hepatocyte impairment interact in ALD. Limitations include the nature of the dataset and the need to account for partial immune-transcript contamination in hepatocyte analyses.</p>
+<section id="abstract" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="abstract"><span class="header-section-number">1</span> Abstract</h2>
+<p>Alcohol-associated liver disease, or ALD, is a major cause of liver damage and cirrhosis in the United States. ALD is often described as a disease caused by alcohol damaging hepatocytes, which are the main liver cells involved in metabolism. However, hepatocyte injury alone does not fully explain why only some heavy drinkers develop severe liver disease. Other factors, such as genetics, inflammation, and immune-cell activity, may also affect how ALD develops. This project tested the hypothesis that immune cell populations in ALD livers actively show distinct gene-expression changes compared to healthy, control livers. To study this question, we analyzed single-cell RNA sequencing data from human liver tissue. The dataset included five ALD liver samples and five healthy control liver samples. Single-cell RNA sequencing was useful because it allowed us to study gene expression in individual cell types instead of averaging all liver cells together. We used a Seurat-based workflow that included quality control, normalization, integration, dimensional reduction, clustering, cell-type identification, differential expression, and pathway analysis. Integration was important because the ALD and control samples came from different sources, so some differences could be caused by batch effects instead of true biological changes. UMAP clustering showed that liver and immune cells formed separate groups based on their gene-expression patterns. Marker gene feature plots helped confirm the identities of important immune populations, including monocytes and T cells. After identifying these cell types, we compared ALD and control samples. Cell proportion results suggested that immune cells, especially monocytes and T cells, were increased in ALD liver. Differential expression analysis showed that these immune cells also had changes in gene activity, not just changes in abundance. T cells showed strong gene-expression disruption, while monocytes showed pathway changes related to metabolism and immune regulation. Gene set enrichment analysis helped connect these gene changes to larger biological processes, including inflammation, complement activation, xenobiotic response, immune response, and metabolism. Overall, the results support the hypothesis that immune cell populations in ALD livers actively show distinct gene-expression changes compared to healthy, control livers. These findings suggest that ALD should be understood not only as liver-cell damage from alcohol, but also as a disease involving immune-cell dysregulation. This may help explain how alcohol-related liver injury becomes long-term inflammation and disease progression.</p>
+<hr>
 </section>
-<section id="project-roadmap-living" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="project-roadmap-living"><span class="header-section-number">2</span> Project roadmap (living)</h2>
+<section id="introduction" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2</span> Introduction</h2>
+<p>Alcohol-associated liver disease, or ALD, is a liver disease caused by long-term harmful alcohol use <span class="citation" data-cites="bruha2012">(<a href="#ref-bruha2012" role="doc-biblioref">Bruha et al. 2012</a>)</span>. ALD can range from fat buildup in the liver to liver failure <span class="citation" data-cites="seitz2018">(<a href="#ref-seitz2018" role="doc-biblioref">Seitz et al. 2018</a>)</span>. It is important to study because alcohol-related liver disease is one of the leading causes of cirrhosis in the United States <span class="citation" data-cites="crabb2020">(<a href="#ref-crabb2020" role="doc-biblioref">Crabb et al. 2020</a>)</span>. The liver normally helps with metabolism and detoxification, so continued alcohol exposure can disrupt many liver functions at once <span class="citation" data-cites="ceni2014">(<a href="#ref-ceni2014" role="doc-biblioref">Ceni et al. 2014</a>)</span>.</p>
+<p>Alcohol is mainly broken down in the liver by alcohol dehydrogenase, aldehyde dehydrogenase, and CYP2E1 <span class="citation" data-cites="gao2011">(<a href="#ref-gao2011" role="doc-biblioref">Gao and Bataller 2011</a>)</span>. This process can produce harmful byproducts that damage hepatocytes, the main liver cells involved in metabolism <span class="citation" data-cites="edenberg2018">(<a href="#ref-edenberg2018" role="doc-biblioref">Edenberg and McClintick 2018</a>)</span>. However, ALD is not only caused by direct hepatocyte damage. Many heavy drinkers never develop cirrhosis, showing that other factors affect disease risk <span class="citation" data-cites="bruha2012">(<a href="#ref-bruha2012" role="doc-biblioref">Bruha et al. 2012</a>)</span>. Twin studies also show that alcoholic cirrhosis occurs more often in identical twins than in fraternal twins, supporting a genetic role in ALD susceptibility <span class="citation" data-cites="whitfield1997">(<a href="#ref-whitfield1997" role="doc-biblioref">Whitfield 1997</a>)</span>. Genes involved in alcohol metabolism, such as ADH1B, ADH1C, and ALDH2, can affect how alcohol is processed in the body <span class="citation" data-cites="edenberg2018">(<a href="#ref-edenberg2018" role="doc-biblioref">Edenberg and McClintick 2018</a>)</span>. Immune-related genes may also matter, since CTLA4, a gene involved in T-cell regulation, has been linked to alcoholic liver disease severity <span class="citation" data-cites="valenti2004">(<a href="#ref-valenti2004" role="doc-biblioref">Valenti et al. 2004</a>)</span>.</p>
+<p>Immune cells are important in ALD because injured hepatocytes can release stress signals that activate inflammation <span class="citation" data-cites="gao2011">(<a href="#ref-gao2011" role="doc-biblioref">Gao and Bataller 2011</a>)</span>. Alcohol can also affect the gut, allowing bacterial products to reach the liver and trigger immune responses <span class="citation" data-cites="szabo2009">(<a href="#ref-szabo2009" role="doc-biblioref">Szabo and Mandrekar 2009</a>)</span>. Because of this, ALD involves immune cells such as Kupffer cells, monocytes, macrophages, neutrophils, and T cells <span class="citation" data-cites="ju2015">(<a href="#ref-ju2015" role="doc-biblioref">Ju and Mandrekar 2015</a>)</span>. Monocytes and macrophages respond to tissue injury and can increase inflammation when overactivated <span class="citation" data-cites="mcclain2002">(<a href="#ref-mcclain2002" role="doc-biblioref">McClain et al. 2002</a>)</span>. Kupffer cells are liver macrophages, while monocytes can be recruited from the blood during inflammation <span class="citation" data-cites="krenkel2017">(<a href="#ref-krenkel2017" role="doc-biblioref">Krenkel and Tacke 2017</a>)</span>. T cells help regulate adaptive immune responses and communicate with other immune cells <span class="citation" data-cites="li2019">(<a href="#ref-li2019" role="doc-biblioref">Li et al. 2019</a>)</span>. In chronic liver disease, some inflammatory pathways can increase while protective immune functions weaken <span class="citation" data-cites="albillos2014">(<a href="#ref-albillos2014" role="doc-biblioref">Albillos et al. 2014</a>)</span>.</p>
+<p>Single-cell RNA sequencing is useful for this project because it measures gene expression in individual cells instead of averaging all liver cells together. This matters because the liver contains many different cell types, including hepatocytes, monocytes, T cells, Kupffer cells, endothelial cells, and cholangiocytes <span class="citation" data-cites="macparland2018">(<a href="#ref-macparland2018" role="doc-biblioref">MacParland et al. 2018</a>)</span>. Human liver single-cell studies show that these cell types can be identified by their distinct gene-expression patterns <span class="citation" data-cites="aizarani2019">(<a href="#ref-aizarani2019" role="doc-biblioref">Aizarani et al. 2019</a>)</span>. In this project, we analyzed single-cell RNA-seq data from five ALD liver samples and five healthy control liver samples using a Seurat-based workflow including quality control, normalization, integration, dimensional reduction, clustering, marker-based cell-type identification, differential expression, and pathway analysis <span class="citation" data-cites="stuart2019">(<a href="#ref-stuart2019" role="doc-biblioref">Stuart et al. 2019</a>)</span>. Normalization reduces technical noise in single-cell data <span class="citation" data-cites="hafemeister2019">(<a href="#ref-hafemeister2019" role="doc-biblioref">Hafemeister and Satija 2019</a>)</span>. Integration was important because the ALD and control samples came from different sources, so some differences could reflect batch effects instead of true biology <span class="citation" data-cites="hao2021">(<a href="#ref-hao2021" role="doc-biblioref">Hao et al. 2021</a>)</span>.</p>
+<p>After identifying cell types, we compared ALD and control samples to see whether immune cells showed active changes. Differential expression helped identify which immune cells had stronger gene-expression changes. Gene set enrichment analysis, or GSEA, was used to study biological pathways instead of only individual genes <span class="citation" data-cites="subramanian2005">(<a href="#ref-subramanian2005" role="doc-biblioref">Subramanian et al. 2005</a>)</span>. Literature connects gene-expression changes to processes such as immune response, inflammation, complement activation, xenobiotic response, and metabolism <span class="citation" data-cites="liberzon2015">(<a href="#ref-liberzon2015" role="doc-biblioref">Liberzon et al. 2015</a>)</span>.</p>
+<p>A major focus of this project was whether monocytes and T cells show signs of immune dysregulation in ALD. Immune cells can change their metabolism during stress and inflammation, a process called immunometabolic reprogramming <span class="citation" data-cites="oishi2024">(<a href="#ref-oishi2024" role="doc-biblioref">Oishi et al. 2024</a>)</span>. Cory et al.&nbsp;showed that human monocytes exposed to SARS-CoV-2 spike protein shifted toward a more glycolysis-driven inflammatory state <span class="citation" data-cites="cory2021">(<a href="#ref-cory2021" role="doc-biblioref">Cory et al. 2021</a>)</span>. Although that study was not about ALD, it supports the idea that monocytes can actively change their metabolism during inflammatory stress, helping explain why monocyte metabolic pathway changes in ALD may be biologically meaningful.</p>
+<p>Overall, ALD should be understood as both hepatocyte injury and immune-cell dysregulation. Alcohol metabolism can damage hepatocytes, but immune cells may shape how that damage becomes inflammation and disease progression. By using single-cell RNA sequencing, this project investigates whether immune populations show distinct gene-expression changes in ALD compared with healthy liver.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hypothesis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Immune cell populations in ALD livers actively show distinct gene-expression changes compared to healthy, control livers.</strong></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="limitations" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="limitations"><span class="header-section-number">3</span> Limitations</h2>
+<p>This project has several important limitations. First, the ALD dataset (n = 5) and control dataset (n = 5) are both small, which limits statistical power and makes it difficult to fully separate biological variation from individual differences between donors. Second, the ALD and control samples came from two different GEO studies, meaning that some observed differences could reflect study-level batch effects even after integration. Third, hepatocyte clusters showed some immune transcript contamination, which may reflect true biology such as phagocytosis of immune cells, or may reflect technical ambient RNA signal from highly abundant immune transcripts. Fourth, cell-type annotations were based on canonical marker genes and may not fully capture rare or transitional cell states. Finally, this study is observational and cross-sectional and cannot establish causal relationships between immune changes and ALD progression. Future work using longitudinal samples, larger cohorts, and functional validation would be needed to confirm the biological mechanisms suggested by these findings.</p>
+<hr>
+</section>
+<section id="future-work" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="future-work"><span class="header-section-number">4</span> Future Work</h2>
+<p>Several directions could extend this project in scientifically meaningful ways. First, analyzing larger and more diverse patient cohorts would improve statistical power and allow investigation of how ALD severity, sex, and genetic background interact with immune cell transcription. Second, multi-omic approaches combining single-cell RNA sequencing with ATAC-seq or proteomics could reveal whether transcriptional changes are accompanied by changes in chromatin accessibility or protein-level immune activity. Third, trajectory analysis methods such as Monocle or RNA velocity could model how monocyte and T cell populations transition between functional states during ALD progression. Fourth, the complement suppression signature observed across multiple cell types warrants functional follow-up — experiments in liver organoids or animal models could test whether restoring complement activity affects disease outcome. Finally, integrating spatial transcriptomics data would connect cell-type findings to their histological context within the liver, linking molecular results to tissue architecture.</p>
+<hr>
+</section>
+<section id="project-roadmap-living" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="project-roadmap-living"><span class="header-section-number">5</span> Project roadmap (living)</h2>
 <ul class="task-list">
 <li><p><label><input type="checkbox" checked="">Find dataset(s)<br>
 Identified and used GEO dataset (GSE236382) with single-cell RNA sequencing data from ALD liver samples, and added a matched healthy control dataset for comparison.</label></p></li>
@@ -172,23 +230,97 @@ Applied Seurat workflow including PCA, UMAP, clustering, and marker gene analysi
 Performed differential expression analysis followed by gene set enrichment analysis (GSEA) to identify significantly altered biological pathways.</label></p></li>
 <li><p><label><input type="checkbox" checked="">Final figures + interpretation<br>
 Generated UMAP plots, marker gene dot plots, and pathway enrichment figures. Interpreted results to show increased immune activation and disruption of metabolic pathways in ALD.</label></p></li>
-<li><p><label><input type="checkbox">Limitations + ethics + reproducibility notes<br>
+<li><p><label><input type="checkbox" checked="">Limitations + ethics + reproducibility notes<br>
 To be finalized; will include discussion of dataset size, global vs cell-type-specific analysis, and reproducibility through shared code and data sources.</label></p></li>
 </ul>
 </section>
-<section id="where-to-find-things" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="where-to-find-things"><span class="header-section-number">3</span> Where to find things</h2>
+<section id="where-to-find-things" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="where-to-find-things"><span class="header-section-number">6</span> Where to find things</h2>
 <ul>
 <li><strong>Scripts:</strong> <code>scripts/</code></li>
 <li><strong>Data notes:</strong> <code>data/README.md</code></li>
 <li><strong>Figures:</strong> <code>figures/</code></li>
 <li><strong>Citations:</strong> <code>references.bib</code></li>
 </ul>
+</section>
+<section id="references" class="level2" data-number="7">
+
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">7 references</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-aizarani2019" class="csl-entry" role="listitem">
+Aizarani, N., A. Saviano, Sagar, et al. 2019. <span>“A Human Liver Cell Atlas Reveals Heterogeneity and Epithelial Progenitors.”</span> <em>Nature</em> 572: 199–204. <a href="https://doi.org/10.1038/s41586-019-1373-2">https://doi.org/10.1038/s41586-019-1373-2</a>.
+</div>
+<div id="ref-albillos2014" class="csl-entry" role="listitem">
+Albillos, A., M. Lario, and M. Álvarez-Mon. 2014. <span>“Cirrhosis-Associated Immune Dysfunction: Distinctive Features and Clinical Relevance.”</span> <em>Journal of Hepatology</em> 61 (6): 1385–96. <a href="https://doi.org/10.1016/j.jhep.2014.08.010">https://doi.org/10.1016/j.jhep.2014.08.010</a>.
+</div>
+<div id="ref-bruha2012" class="csl-entry" role="listitem">
+Bruha, R., K. Dvořák, and J. Petrtýl. 2012. <span>“Alcoholic Liver Disease.”</span> <em>World Journal of Hepatology</em> 4 (3): 81–90. <a href="https://doi.org/10.4254/wjh.v4.i3.81">https://doi.org/10.4254/wjh.v4.i3.81</a>.
+</div>
+<div id="ref-ceni2014" class="csl-entry" role="listitem">
+Ceni, E., T. Mello, and A. Galli. 2014. <span>“Pathogenesis of Alcoholic Liver Disease: Role of Oxidative Metabolism.”</span> <em>World Journal of Gastroenterology</em> 20 (47): 17756–72. <a href="https://doi.org/10.3748/wjg.v20.i47.17756">https://doi.org/10.3748/wjg.v20.i47.17756</a>.
+</div>
+<div id="ref-cory2021" class="csl-entry" role="listitem">
+Cory, T. J., R. S. Emmons, J. R. Yarbro, K. L. Davis, and B. D. Pence. 2021. <span>“Metformin Suppresses Monocyte Immunometabolic Activation by SARS-CoV-2 Spike Protein Subunit 1.”</span> <em>Frontiers in Immunology</em> 12: 733921. <a href="https://doi.org/10.3389/fimmu.2021.733921">https://doi.org/10.3389/fimmu.2021.733921</a>.
+</div>
+<div id="ref-crabb2020" class="csl-entry" role="listitem">
+Crabb, D. W., G. Y. Im, G. Szabo, J. L. Mellinger, and M. R. Lucey. 2020. <span>“Diagnosis and Treatment of Alcohol-Associated Liver Diseases: 2019 Practice Guidance from the American Association for the Study of Liver Diseases.”</span> <em>Hepatology</em> 71 (1): 306–33. <a href="https://doi.org/10.1002/hep.30866">https://doi.org/10.1002/hep.30866</a>.
+</div>
+<div id="ref-edenberg2018" class="csl-entry" role="listitem">
+Edenberg, H. J., and J. N. McClintick. 2018. <span>“Alcohol Dehydrogenases, Aldehyde Dehydrogenases, and Alcohol Use Disorders: A Critical Review.”</span> <em>Alcoholism: Clinical and Experimental Research</em> 42 (12): 2281–97. <a href="https://doi.org/10.1111/acer.13904">https://doi.org/10.1111/acer.13904</a>.
+</div>
+<div id="ref-gao2011" class="csl-entry" role="listitem">
+Gao, B., and R. Bataller. 2011. <span>“Alcoholic Liver Disease: Pathogenesis and New Therapeutic Targets.”</span> <em>Gastroenterology</em> 141 (5): 1572–85. <a href="https://doi.org/10.1053/j.gastro.2011.09.002">https://doi.org/10.1053/j.gastro.2011.09.002</a>.
+</div>
+<div id="ref-hafemeister2019" class="csl-entry" role="listitem">
+Hafemeister, C., and R. Satija. 2019. <span>“Normalization and Variance Stabilization of Single-Cell RNA-Seq Data Using Regularized Negative Binomial Regression.”</span> <em>Genome Biology</em> 20: 296. <a href="https://doi.org/10.1186/s13059-019-1874-1">https://doi.org/10.1186/s13059-019-1874-1</a>.
+</div>
+<div id="ref-hao2021" class="csl-entry" role="listitem">
+Hao, Y., S. Hao, E. Andersen-Nissen, et al. 2021. <span>“Integrated Analysis of Multimodal Single-Cell Data.”</span> <em>Cell</em> 184 (13): 3573–87. <a href="https://doi.org/10.1016/j.cell.2021.04.048">https://doi.org/10.1016/j.cell.2021.04.048</a>.
+</div>
+<div id="ref-ju2015" class="csl-entry" role="listitem">
+Ju, C., and P. Mandrekar. 2015. <span>“Macrophages and Alcohol-Related Liver Inflammation.”</span> <em>Alcohol Research: Current Reviews</em> 37 (2): 251–62.
+</div>
+<div id="ref-krenkel2017" class="csl-entry" role="listitem">
+Krenkel, O., and F. Tacke. 2017. <span>“Liver Macrophages in Tissue Homeostasis and Disease.”</span> <em>Nature Reviews Immunology</em> 17 (5): 306–21. <a href="https://doi.org/10.1038/nri.2017.11">https://doi.org/10.1038/nri.2017.11</a>.
+</div>
+<div id="ref-li2019" class="csl-entry" role="listitem">
+Li, S., H. Y. Tan, N. Wang, Y. Feng, X. Wang, and Y. Feng. 2019. <span>“Recent Insights into the Role of Immune Cells in Alcoholic Liver Disease.”</span> <em>Frontiers in Immunology</em> 10: 1328. <a href="https://doi.org/10.3389/fimmu.2019.01328">https://doi.org/10.3389/fimmu.2019.01328</a>.
+</div>
+<div id="ref-liberzon2015" class="csl-entry" role="listitem">
+Liberzon, A., C. Birger, H. Thorvaldsdóttir, M. Ghandi, J. P. Mesirov, and P. Tamayo. 2015. <span>“The Molecular Signatures Database Hallmark Gene Set Collection.”</span> <em>Cell Systems</em> 1 (6): 417–25. <a href="https://doi.org/10.1016/j.cels.2015.12.004">https://doi.org/10.1016/j.cels.2015.12.004</a>.
+</div>
+<div id="ref-macparland2018" class="csl-entry" role="listitem">
+MacParland, S. A., J. C. Liu, X. Z. Ma, et al. 2018. <span>“Single Cell RNA Sequencing of Human Liver Reveals Distinct Intrahepatic Macrophage Populations.”</span> <em>Nature Communications</em> 9: 4383. <a href="https://doi.org/10.1038/s41467-018-06318-7">https://doi.org/10.1038/s41467-018-06318-7</a>.
+</div>
+<div id="ref-mcclain2002" class="csl-entry" role="listitem">
+McClain, C. J., D. B. Hill, Z. Song, I. Deaciuc, and S. Barve. 2002. <span>“Monocyte Activation in Alcoholic Liver Disease.”</span> <em>Alcohol</em> 27 (1): 53–61. <a href="https://doi.org/10.1016/S0741-8329(02)00212-4">https://doi.org/10.1016/S0741-8329(02)00212-4</a>.
+</div>
+<div id="ref-oishi2024" class="csl-entry" role="listitem">
+Oishi, Y., Y. Sohrabi, and P. Xiao. 2024. <span>“Editorial: Metabolic Regulation of Macrophage Functions in Inflammation.”</span> <em>Frontiers in Immunology</em> 15: 1369896. <a href="https://doi.org/10.3389/fimmu.2024.1369896">https://doi.org/10.3389/fimmu.2024.1369896</a>.
+</div>
+<div id="ref-seitz2018" class="csl-entry" role="listitem">
+Seitz, H. K., R. Bataller, H. Cortez-Pinto, et al. 2018. <span>“Alcoholic Liver Disease.”</span> <em>Nature Reviews Disease Primers</em> 4: 16. <a href="https://doi.org/10.1038/s41572-018-0014-7">https://doi.org/10.1038/s41572-018-0014-7</a>.
+</div>
+<div id="ref-stuart2019" class="csl-entry" role="listitem">
+Stuart, T., A. Butler, P. Hoffman, et al. 2019. <span>“Comprehensive Integration of Single-Cell Data.”</span> <em>Cell</em> 177 (7): 1888–902. <a href="https://doi.org/10.1016/j.cell.2019.05.031">https://doi.org/10.1016/j.cell.2019.05.031</a>.
+</div>
+<div id="ref-subramanian2005" class="csl-entry" role="listitem">
+Subramanian, A., P. Tamayo, V. K. Mootha, et al. 2005. <span>“Gene Set Enrichment Analysis: A Knowledge-Based Approach for Interpreting Genome-Wide Expression Profiles.”</span> <em>Proceedings of the National Academy of Sciences</em> 102 (43): 15545–50. <a href="https://doi.org/10.1073/pnas.0506580102">https://doi.org/10.1073/pnas.0506580102</a>.
+</div>
+<div id="ref-szabo2009" class="csl-entry" role="listitem">
+Szabo, G., and P. Mandrekar. 2009. <span>“A Recent Perspective on Alcohol, Immunity, and Host Defense.”</span> <em>Alcoholism: Clinical and Experimental Research</em> 33 (2): 220–32. <a href="https://doi.org/10.1111/j.1530-0277.2008.00842.x">https://doi.org/10.1111/j.1530-0277.2008.00842.x</a>.
+</div>
+<div id="ref-valenti2004" class="csl-entry" role="listitem">
+Valenti, L., T. De Feo, A. L. Fracanzani, et al. 2004. <span>“Cytotoxic t-Lymphocyte Antigen-4 A49G Polymorphism Is Associated with Susceptibility to and Severity of Alcoholic Liver Disease in Italian Patients.”</span> <em>Alcohol and Alcoholism</em> 39 (4): 276–80. <a href="https://doi.org/10.1093/alcalc/agh047">https://doi.org/10.1093/alcalc/agh047</a>.
+</div>
+<div id="ref-whitfield1997" class="csl-entry" role="listitem">
+Whitfield, J. B. 1997. <span>“Meta-Analysis of the Effects of Alcohol Dehydrogenase Genotype on Alcohol Dependence and Alcoholic Liver Disease.”</span> <em>Alcohol and Alcoholism</em> 32 (5): 613–19. <a href="https://doi.org/10.1093/oxfordjournals.alcalc.a008303">https://doi.org/10.1093/oxfordjournals.alcalc.a008303</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
